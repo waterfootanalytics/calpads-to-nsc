@@ -1,0 +1,29 @@
+name: Report a problem
+description: Get help reproducing a file preparation or installation problem.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This report will be public. Keep student records, district account sheets, local paths, credentials and generated submissions private. See SECURITY.md for security reports.
+  - type: input
+    id: environment
+    attributes:
+      label: Software versions
+      description: Include your operating system, Python version and the project release or commit you downloaded.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Which command, menu choice or workbook step led to the problem?
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: What happened, and what did you expect?
+      description: Include the relevant error text with identifying details removed.
+    validations:
+      required: true

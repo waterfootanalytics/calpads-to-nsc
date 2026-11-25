@@ -1,0 +1,3 @@
+include CHANGELOG.md CONTRIBUTING.md SECURITY.md requirements.lock
+include docs/*.md
+include tests/test_*.py

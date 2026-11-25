@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "calpads-to-nsc"
+dynamic = ["version"]
+description = "Prepare StudentTracker for High Schools graduates files from certified CALPADS reports."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["CALPADS", "StudentTracker", "education", "graduates"]
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Education",
+]
+authors = [{name = "Waterfoot Analytics"}]
+dependencies = [
+    "defusedxml>=0.7.1,<1",
+    "openpyxl>=3.1.5,<4",
+    "xlrd>=2.0.2,<3",
+]
+
+[project.optional-dependencies]
+dev = ["ruff==0.17.6"]
+
+[project.urls]
+Changelog = "https://github.com/waterfootanalytics/calpads-to-nsc/blob/main/CHANGELOG.md"
+Repository = "https://github.com/waterfootanalytics/calpads-to-nsc"
+Issues = "https://github.com/waterfootanalytics/calpads-to-nsc/issues"
+"Waterfoot Analytics" = "https://waterfootanalytics.com/"
+"Maintainer" = "https://github.com/waterfootanalytics"
+
+[project.scripts]
+prepare-nsc-graduates = "calpads_to_nsc.calpads:entrypoint"
+
+[tool.setuptools.dynamic]
+version = {attr = "calpads_to_nsc.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["calpads_to_nsc"]
+namespaces = false
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "E501", "C901"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
